@@ -6,6 +6,7 @@ public class Player
     public Vector2 Position { get; private set; }
     public float Speed { get; set; } = 240f;
     public float Radius { get; set; } = 16f;
+    public bool HasPackage { get; private set; } = false;
 
     public Player(Vector2 startPosition)
     {
@@ -28,10 +29,10 @@ public class Player
         }
 
         // Håll spelaren inom fönstret
-        float minX = Radius;
-        float minY = Radius;
-        float maxX = screenWidth - Radius;
-        float maxY = screenHeight - Radius;
+        float minX = 20 + Radius;
+        float minY = 20 + Radius;
+        float maxX = screenWidth - 20 - Radius;
+        float maxY = screenHeight - 20 - Radius;
 
         Position = new Vector2(
             Clamp(Position.X, minX, maxX),
@@ -39,10 +40,25 @@ public class Player
         );
     }
 
+    public void PickUpPackage()
+    {
+        HasPackage = true;
+    }
+
+    public void DeliverPackage()
+    {
+        HasPackage = true;
+    }
+
     public void Draw()
     {
         Raylib.DrawCircleV(Position, Radius, Color.SkyBlue);
         Raylib.DrawCircleLines((int)Position.X, (int)Position.Y, Radius, Color.White);
+
+        if (HasPackage)
+        {
+            Raylib.DrawCircle((int)Position.X, (int)(Position.Y - 24), 6, Color.Gold);
+        }
     }
 
     private static float Clamp(float value, float min, float max)
