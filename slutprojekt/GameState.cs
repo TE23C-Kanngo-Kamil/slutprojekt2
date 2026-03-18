@@ -1,3 +1,5 @@
+namespace Slutprojekt;
+
 public enum GameState
 {
     Menu,

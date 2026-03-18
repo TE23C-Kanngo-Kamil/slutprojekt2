@@ -1,6 +1,8 @@
 using System.Numerics;
 using Raylib_cs;
 
+namespace Slutprojekt;
+
 public class Package : GameObject
 {
     public float Radius { get; } = 12f;

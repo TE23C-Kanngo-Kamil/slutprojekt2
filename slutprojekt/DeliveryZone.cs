@@ -1,6 +1,8 @@
 using System.Numerics;
 using Raylib_cs;
 
+namespace Slutprojekt;
+
 public class DeliveryZone : GameObject
 {
     public float Width { get; } = 80f;

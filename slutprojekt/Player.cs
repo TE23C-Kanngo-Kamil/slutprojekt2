@@ -1,19 +1,15 @@
 using System.Numerics;
 using Raylib_cs;
 
-public class Player
+namespace Slutprojekt;
+
+public class Player : Entity
 {
-    public Vector2 Position { get; private set; }
-    public float Speed { get; set; } = 240f;
-    public float Radius { get; set; } = 16f;
     public bool HasPackage { get; private set; } = false;
 
-    public Player(Vector2 startPosition)
-    {
-        Position = startPosition;
-    }
+    public Player(Vector2 startPosition) : base(startPosition, 240f, 16f){}
 
-    public void Update(float dt, int screenWidth, int screenHeight)
+    public override void Update(float dt)
     {
         Vector2 move = Vector2.Zero;
 
@@ -31,8 +27,8 @@ public class Player
         // Håll spelaren inom fönstret
         float minX = 20 + Radius;
         float minY = 20 + Radius;
-        float maxX = screenWidth - 20 - Radius;
-        float maxY = screenHeight - 20 - Radius;
+        float maxX = 800 - 20 - Radius;
+        float maxY = 600 - 20 - Radius;
 
         Position = new Vector2(
             Clamp(Position.X, minX, maxX),
@@ -47,10 +43,10 @@ public class Player
 
     public void DeliverPackage()
     {
-        HasPackage = true;
+        HasPackage = false;
     }
 
-    public void Draw()
+    public override void Draw()
     {
         Raylib.DrawCircleV(Position, Radius, Color.SkyBlue);
         Raylib.DrawCircleLines((int)Position.X, (int)Position.Y, Radius, Color.White);

@@ -1,6 +1,8 @@
 using System.Numerics;
 using Raylib_cs;
 
+namespace Slutprojekt;
+
 public abstract class GameObject
 {
     public Vector2 Position { get; protected set; }

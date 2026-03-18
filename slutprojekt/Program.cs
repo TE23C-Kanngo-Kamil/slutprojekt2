@@ -1,4 +1,6 @@
-﻿public static class Program
+﻿namespace Slutprojekt;
+
+public static class Program
 {
     public static void Main()
     {
