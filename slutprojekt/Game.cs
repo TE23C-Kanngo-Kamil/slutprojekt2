@@ -233,7 +233,7 @@ public class Game
             new ChaserEnemy(new Vector2(700, 100), _player)
         };
 
-        _gameOverMessage = "Game Over!"    }
+        _gameOverMessage = "Game Over!";    }
 
     private void DrawCentered(string text, int y, int fontSize)
     {
