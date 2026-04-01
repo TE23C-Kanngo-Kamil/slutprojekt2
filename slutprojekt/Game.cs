@@ -21,7 +21,7 @@ public class Game
 
     public void Run()
     {
-        Raylib.InitWindow(ScreenWidth, ScreenHeight, "Dungeon Quest");
+        Raylib.InitWindow(ScreenWidth, ScreenHeight, "DUNGEON QUEST");
         // Hindrar att ESC stänger hela spelet även utanför spelmenyn
         Raylib.SetExitKey(KeyboardKey.Null);
         Raylib.SetTargetFPS(60);
@@ -233,8 +233,7 @@ public class Game
             new ChaserEnemy(new Vector2(700, 100), _player)
         };
 
-        _gameOverMessage = "Game Over!";
-    }
+        _gameOverMessage = "Game Over!"    }
 
     private void DrawCentered(string text, int y, int fontSize)
     {
